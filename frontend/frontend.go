@@ -2,9 +2,9 @@ package frontend
 
 import (
 	"fmt"
-	"github.com/pboehm/ddns/shared"
-	"gopkg.in/gin-gonic/gin.v1"
-	"html/template"
+	"github.com/lemeb/ddns/shared"
+	"github.com/gin-gonic/gin"
+    "html/template"
 	"log"
 	"net"
 	"net/http"
@@ -120,7 +120,8 @@ func (f *Frontend) Run() error {
 		}
 
 		c.JSON(200, gin.H{
-			"current_ip": ip,
+            "host": host,
+            "current_ip": ip,
 			"status":     "Successfuly updated",
 		})
 	})

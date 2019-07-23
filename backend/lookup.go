@@ -3,7 +3,7 @@ package backend
 import (
 	"errors"
 	"fmt"
-	"github.com/pboehm/ddns/shared"
+	"github.com/lemeb/ddns/shared"
 	"strings"
 	"time"
 )

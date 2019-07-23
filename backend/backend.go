@@ -1,8 +1,8 @@
 package backend
 
 import (
-	"github.com/pboehm/ddns/shared"
-	"gopkg.in/gin-gonic/gin.v1"
+	"github.com/lemeb/ddns/shared"
+	"github.com/gin-gonic/gin"
 	"log"
 	"strings"
 )
