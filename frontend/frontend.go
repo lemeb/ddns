@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"github.com/lemeb/ddns/shared"
 	"github.com/gin-gonic/gin"
-    "html/template"
+    	"html/template"
 	"log"
 	"net"
 	"net/http"
+	"encoding/json"
 	"regexp"
 )
 
@@ -122,6 +123,7 @@ func (f *Frontend) Run() error {
 
 		c.JSON(200, gin.H{
 			"best_guess_ip": c.ClientIP(),
+			"headers": json.Marshal(req.Header),
 			"host": host,
             		"current_ip": ip,
 			"status":     "Successfuly updated",
