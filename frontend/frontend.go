@@ -121,13 +121,16 @@ func (f *Frontend) Run() error {
 			})
 		}
 
-		c.JSON(200, gin.H{
-			"best_guess_ip": c.ClientIP(),
-			"headers": json.Marshal(req.Header),
-			"host": host,
-            		"current_ip": ip,
-			"status":     "Successfuly updated",
-		})
+		headersJson, err := json.Marshal(req.Header)
+		if err != nil {
+			c.JSON(200, gin.H{
+				"best_guess_ip": c.ClientIP(),
+				"headers": headersJson,
+				"host": host,
+				"current_ip": ip,
+				"status":     "Successfuly updated",
+			})
+		}
 	})
 
 	return r.Run(f.config.ListenFrontend)
