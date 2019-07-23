@@ -3,8 +3,8 @@ package frontend
 import (
 	"fmt"
 	"github.com/lemeb/ddns/shared"
-	"github.com/gin-gonic/gin"
-    	"html/template"
+    "github.com/gin-gonic/gin"
+    "html/template"
 	"log"
 	"net"
 	"net/http"
@@ -121,8 +121,10 @@ func (f *Frontend) Run() error {
 			})
 		}
 
+        log.Printf("Here")
 		headersJson, err := json.Marshal(req.Header)
-		if err != nil {
+		if err == nil {
+            log.Printf(headersJson)
 			c.JSON(200, gin.H{
 				"best_guess_ip": c.ClientIP(),
 				"headers": headersJson,
