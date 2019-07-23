@@ -104,7 +104,8 @@ func (f *Frontend) Run() error {
 			return
 		}
 
-		ip, err := extractRemoteAddr(c.Request)
+		req = c.Request
+		ip, err := extractRemoteAddr(req)
 		if err != nil {
 			c.JSON(400, gin.H{
 				"error": "Your sender IP address is not in the right format",
