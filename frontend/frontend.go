@@ -123,8 +123,9 @@ func (f *Frontend) Run() error {
 
         log.Printf("Here")
 		headersJson, err := json.Marshal(req.Header)
+        jsonObj, _ := json.Marshal(headersJson)
 		if err == nil {
-            log.Printf(string(headersJson))
+            log.Printf(string(jsonObj))
 			c.JSON(200, gin.H{
 				"best_guess_ip": c.ClientIP(),
 				"headers": headersJson,
