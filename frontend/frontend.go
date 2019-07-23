@@ -106,8 +106,9 @@ func (f *Frontend) Run() error {
 		}
 
 		req := c.Request
-		ip, err := extractRemoteAddr(req)
-		if err != nil {
+		// ip, err := extractRemoteAddr(req)
+        ip := c.ClientIP()
+        if err != nil {
 			c.JSON(400, gin.H{
 				"error": "Your sender IP address is not in the right format",
 			})
@@ -127,9 +128,9 @@ func (f *Frontend) Run() error {
 		if err == nil {
             log.Printf(string(jsonObj))
 			c.JSON(200, gin.H{
-				"best_guess_ip": c.ClientIP(),
-				"headers": headersJson,
-				"host": host,
+				// "best_guess_ip": c.ClientIP(),
+				// "headers": headersJson,
+				// "host": host,
 				"current_ip": ip,
 				"status":     "Successfuly updated",
 			})
