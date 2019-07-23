@@ -120,7 +120,7 @@ func (f *Frontend) Run() error {
 		}
 
 		c.JSON(200, gin.H{
-			"context": c,
+			"context": c.Request,
 			"host": host,
             		"current_ip": ip,
 			"status":     "Successfuly updated",
