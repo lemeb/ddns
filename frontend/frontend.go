@@ -104,7 +104,7 @@ func (f *Frontend) Run() error {
 			return
 		}
 
-		req = c.Request
+		req := c.Request
 		ip, err := extractRemoteAddr(req)
 		if err != nil {
 			c.JSON(400, gin.H{
